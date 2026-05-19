@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -9,42 +9,17 @@ import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { WhatsAppFloat } from "@/components/shared/WhatsAppFloat";
 
-const cabinetGrotesk = localFont({
-  src: [
-    {
-      path: "../public/fonts/CabinetGrotesk-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/CabinetGrotesk-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display-local",
   display: "swap",
   preload: true,
 });
 
-const generalSans = localFont({
-  src: [
-    {
-      path: "../public/fonts/GeneralSans-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/GeneralSans-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/GeneralSans-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-  ],
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body-local",
   display: "swap",
 });
@@ -67,7 +42,7 @@ export default function RootLayout({
     <html
       lang="ms"
       suppressHydrationWarning
-      className={cn(cabinetGrotesk.variable, generalSans.variable)}
+      className={cn(bricolageGrotesque.variable, inter.variable)}
     >
       <body className="font-body antialiased">
         <LocaleProvider>

@@ -28,7 +28,7 @@ export function FeatureDeepDiveTeaser() {
           <ul className="mt-8 flex flex-col gap-3">
             {t.featureDeepDive.bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-pale)] text-[var(--color-brand-deep)]">
+                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)]">
                   <Check className="h-3 w-3" strokeWidth={3} />
                 </span>
                 <span className="text-[0.95rem] leading-[1.6] text-[var(--color-ink)]">

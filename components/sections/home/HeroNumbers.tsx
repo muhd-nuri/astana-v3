@@ -143,7 +143,7 @@ function StatRow({ stat, index }: { stat: Stat; index: number }) {
         style={{ fontSize: "var(--text-hero-stat)" }}
       >
         {value.toLocaleString("en-MY")}
-        <span className="text-[var(--color-brand-primary)]">{stat.suffix}</span>
+        <span className="text-gradient-brand">{stat.suffix}</span>
       </span>
       <span className="hidden text-[0.8rem] font-medium uppercase tracking-[0.14em] text-[var(--color-ink-soft)] md:block md:text-[0.85rem]">
         {stat.label}

@@ -1,29 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle, Calendar, ArrowRight, Play } from "lucide-react";
-import { useLocale } from "@/lib/i18n/LocaleContext";
+import { MessageCircle, ArrowRight, Handshake } from "lucide-react";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { DottedGridAtmosphere } from "@/components/shared/DottedGridAtmosphere";
 import { links } from "@/lib/links";
 
-export function FinalCTA() {
-  const { t } = useLocale();
+export function PartnershipCTA() {
   const reduced = useReducedMotion();
-  const playStoreUrl = links.playStore();
-
   return (
     <section
-      id="final-cta"
+      id="partnership"
       className="relative isolate overflow-hidden py-[clamp(5rem,10vw,9rem)] text-[var(--color-page-bg)]"
       style={{ background: "var(--gradient-night)" }}
     >
-      <DottedGridAtmosphere
-        scope="absolute"
-        color="#ffffff"
-        opacity={0.06}
-      />
+      <DottedGridAtmosphere scope="absolute" color="#ffffff" opacity={0.06} />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -40,17 +31,22 @@ export function FinalCTA() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="relative mx-auto flex w-full max-w-[820px] flex-col items-center px-6 text-center md:px-10"
       >
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-white/80">
+          <Handshake className="h-3.5 w-3.5" strokeWidth={2.25} />
+          Partner with us
+        </span>
         <h2
-          className="font-display font-bold tracking-[-0.02em] text-[var(--color-page-bg)]"
+          className="mt-6 font-display font-bold tracking-[-0.02em] text-white"
           style={{
             fontSize: "var(--text-display-lg)",
             lineHeight: "var(--text-display-lg--line-height)",
           }}
         >
-          {t.finalCta.heading}
+          Together, we can grow and change the world.
         </h2>
-        <p className="mt-5 max-w-[36rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-page-bg)]/80">
-          {t.finalCta.subtitle}
+        <p className="mt-5 max-w-[36rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-white/75">
+          Join 10,000+ Malaysian shop owners using Astana to run leaner, sell
+          more and stay in control — anywhere, anytime.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -60,36 +56,22 @@ export function FinalCTA() {
             variant="primary"
             size="lg"
             icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
-            trailingIcon={<ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />}
+            trailingIcon={
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
+            }
           >
-            {t.finalCta.ctaPrimary}
+            Get started now — it&rsquo;s free
           </CTAButton>
           <CTAButton
-            href={links.calendly() || "/contact"}
-            external={Boolean(links.calendly())}
+            href="https://astanabiz.com/about"
+            external
             variant="secondary"
             size="lg"
-            className="border-[var(--color-page-bg)]/25 text-[var(--color-page-bg)] hover:border-[var(--color-brand-light)] hover:text-[var(--color-brand-light)]"
-            icon={<Calendar className="h-4 w-4" strokeWidth={2.25} />}
+            className="border-white/25 text-white hover:border-[var(--color-brand-light)] hover:text-[var(--color-brand-light)]"
           >
-            {t.finalCta.ctaSecondary}
+            Become a partner
           </CTAButton>
         </div>
-
-        {playStoreUrl ? (
-          <div className="mt-6">
-            <Link
-              href={playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[0.85rem] font-medium text-[var(--color-page-bg)]/75 transition-colors hover:text-[var(--color-brand-light)]"
-            >
-              <Play className="h-3.5 w-3.5 fill-current" />
-              {t.finalCta.ctaPlayStore}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-        ) : null}
       </motion.div>
     </section>
   );

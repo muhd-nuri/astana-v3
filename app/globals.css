@@ -5,31 +5,84 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Brand greens — family resemblance with MCBIZ, distinct flat application */
-  --color-brand-primary: oklch(0.52 0.16 158);
-  --color-brand-mid: oklch(0.62 0.14 158);
-  --color-brand-light: oklch(0.78 0.10 158);
-  --color-brand-pale: oklch(0.94 0.04 158);
-  --color-brand-deep: oklch(0.32 0.10 165);
+  /* ──────────────────────────────────────────────────────────────────
+   * Brand palette — sampled directly from mcbiz.astanabiz.com.
+   * Identity is a blue → teal → green gradient. Singletons below are
+   * picked from the gradient stops so flat surfaces still read on-brand.
+   * ────────────────────────────────────────────────────────────────── */
+  --color-brand-primary: #37b34a;   /* green CTA (visible WhatsApp-style button) */
+  --color-brand-mid: #2da3a7;       /* teal — middle gradient stop, hover */
+  --color-brand-deep: #1f6da6;      /* deep blue — origin stop, deep accents */
+  --color-brand-light: #6ee07d;     /* mint highlight */
+  --color-brand-pale: #e8f7ec;      /* pale mint chip/wash */
+  --color-brand-cyan: #5fc8e8;      /* cyan accent (mesh blobs, sheens) */
+  --color-brand-forest: #1e7a34;    /* dark green text on pale surfaces */
 
-  /* Ink + neutrals (warm-tinted, never blue-cold) */
-  --color-ink: oklch(0.20 0.02 250);
-  --color-ink-soft: oklch(0.42 0.02 250);
-  --color-text-muted: oklch(0.62 0.02 250);
+  /* Ink + neutrals (slate/navy, matching MCBIZ neutrals) */
+  --color-ink: #0a1623;
+  --color-ink-soft: #1e3247;
+  --color-ink-mid: #3b484e;
+  --color-text-muted: #64748b;
+  --color-text-faint: #94a3b8;
 
-  /* Surfaces */
-  --color-page-bg: oklch(0.98 0.005 80);
-  --color-surface: oklch(1 0 0);
-  --color-surface-tint: oklch(0.96 0.008 80);
+  /* Surfaces — cool pale-blue page bg with white cards (MCBIZ exact) */
+  --color-page-bg: #f6f9fd;
+  --color-page-bg-top: #ffffff;
+  --color-page-bg-bottom: #eaf3fb;
+  --color-surface: #ffffff;
+  --color-surface-tint: #f4f7fc;
+  --color-surface-mint: #eef6f1;
+  --color-surface-sky: #eaf3fb;
+
+  /* Dark hero / footer surface */
+  --color-night: #0a1623;
+  --color-night-mid: #0f1f2e;
+  --color-night-soft: #1e3247;
 
   /* Lines */
-  --color-border-hairline: oklch(0.90 0.005 250);
+  --color-border-hairline: #e2e8f0;
+  --color-border-soft: #eef3f7;
 
-  /* Typography (next/font supplies the CSS variables on <html>) */
-  --font-display: var(--font-display-local), "Helvetica Neue", system-ui, sans-serif;
-  --font-body: var(--font-body-local), "Helvetica Neue", system-ui, sans-serif;
+  /* Status (extracted from MCBIZ) */
+  --color-warn: #f59e0b;
+  --color-warn-deep: #b75000;
+  --color-danger: #e70044;
+  --color-whatsapp: #25d366;
 
-  /* Type scale (Tailwind v4 picks these up as text-* utilities) */
+  /* ──────────────────────────────────────────────────────────────────
+   * Brand gradients — verbatim from MCBIZ. Use as backgrounds.
+   * ────────────────────────────────────────────────────────────────── */
+  --gradient-brand: linear-gradient(135deg, #2b80c2 0%, #2da3a7 50%, #37b34a 100%);
+  --gradient-brand-2stop: linear-gradient(135deg, #2b80c2 0%, #37b34a 100%);
+  --gradient-brand-soft: linear-gradient(135deg, #2b80c21f 0%, #37b34a1f 100%);
+  --gradient-hero-text: linear-gradient(120deg, #1f6da6 0%, #1f7e85 50%, #1e7a34 100%);
+  --gradient-hero-pastel: linear-gradient(120deg, #9bdcef 0%, #7ad8e6 45%, #9be5a7 100%);
+  --gradient-night: linear-gradient(135deg, #0a1623 0%, #0f1f2e 55%, #1e3247 100%);
+
+  /* Page atmosphere gradients */
+  --gradient-page: linear-gradient(#ffffff 0%, #f6f9fd 55%, #eaf3fb 100%);
+  --gradient-surface-sky: linear-gradient(#f4f8fb 0%, #eef3f7 100%);
+  --gradient-surface-mint: linear-gradient(#f7faff 0%, #eef6f1 100%);
+
+  /* Shine / sweep sheens for buttons & cards on hover */
+  --gradient-sheen-white: linear-gradient(100deg, transparent 0%, #ffffff8c 45%, #ffffffd9 55%, transparent 100%);
+  --gradient-sheen-mint: linear-gradient(100deg, transparent 0%, #5fc8e866 45%, #6ee07d73 55%, transparent 100%);
+
+  /* ──────────────────────────────────────────────────────────────────
+   * Brand glow shadows — layered: inset top highlight + teal halo + blue bottom.
+   * ────────────────────────────────────────────────────────────────── */
+  --shadow-brand-lg: inset 0 1px #ffffffb3, 0 14px 32px -10px #2da3a799, 0 4px 14px -2px #2b80c247;
+  --shadow-brand-md: inset 0 1px #ffffff99, 0 8px 24px -10px #2da3a773, 0 2px 8px -2px #2b80c22e;
+  --shadow-brand-sm: inset 0 1px #ffffff80, 0 4px 12px -6px #2da3a766, 0 1px 4px -1px #2b80c21f;
+  --shadow-card-cyan: inset 0 0 0 1px #5fc8e824, 0 10px 28px -10px #5fc8e873, 0 2px 10px -2px #2da3a752;
+  --shadow-card-soft: 0 1px 2px -1px #0a16230d, 0 8px 24px -16px #0a162314;
+  --shadow-card-hover: 0 4px 12px -4px #0a162314, 0 16px 40px -16px #0a162126;
+
+  /* Typography — next/font supplies the variables on <html> */
+  --font-display: var(--font-display-local), "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: var(--font-body-local), "Inter", system-ui, sans-serif;
+
+  /* Type scale */
   --text-hero-stat: clamp(4rem, 12vw, 9rem);
   --text-hero-stat--line-height: 0.9;
   --text-display-xl: clamp(2.5rem, 6vw, 4.5rem);
@@ -50,7 +103,7 @@
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: 0.12em;
 
-  /* Spacing extensions */
+  /* Spacing */
   --spacing-section: 6rem;
   --spacing-section-lg: 9rem;
 
@@ -59,7 +112,7 @@
 }
 
 @theme inline {
-  /* shadcn compatibility — map shadcn primitives to brand tokens so Sheet/Dialog etc. inherit correctly */
+  /* shadcn compatibility */
   --font-heading: var(--font-display);
   --font-sans: var(--font-body);
   --color-background: var(--color-page-bg);
@@ -69,34 +122,31 @@
   --color-popover: var(--color-surface);
   --color-popover-foreground: var(--color-ink);
   --color-primary: var(--color-brand-primary);
-  --color-primary-foreground: var(--color-page-bg);
+  --color-primary-foreground: #ffffff;
   --color-secondary: var(--color-surface-tint);
   --color-secondary-foreground: var(--color-ink);
   --color-muted: var(--color-surface-tint);
   --color-muted-foreground: var(--color-ink-soft);
   --color-accent: var(--color-brand-pale);
-  --color-accent-foreground: var(--color-brand-deep);
-  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-accent-foreground: var(--color-brand-forest);
+  --color-destructive: var(--color-danger);
   --color-border: var(--color-border-hairline);
   --color-input: var(--color-border-hairline);
-  --color-ring: var(--color-brand-light);
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
-  --radius-3xl: 1.5rem;
-  --radius-4xl: 2rem;
+  --color-ring: var(--color-brand-mid);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
 }
 
 :root {
-  /* Atmosphere */
-  --grid-dot-opacity: 0.05;
-  --grid-dot-opacity-dark: 0.08;
+  --grid-dot-opacity: 0.06;
+  --grid-dot-opacity-dark: 0.18;
   --grid-spacing: 24px;
-
-  /* Radius base (shadcn) */
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 @layer base {
@@ -110,7 +160,12 @@
   }
 
   body {
-    background: var(--color-page-bg);
+    /* MCBIZ page atmosphere: subtle white → pale-blue gradient, fixed */
+    background:
+      radial-gradient(120% 80% at 0% 0%, #5fc8e838, transparent 55%),
+      radial-gradient(120% 80% at 100% 0%, #37b34a2e, transparent 55%),
+      var(--gradient-page);
+    background-attachment: fixed;
     color: var(--color-ink);
     min-height: 100vh;
     font-feature-settings: "ss01", "ss02";
@@ -120,11 +175,12 @@
     font-family: var(--font-display);
     color: var(--color-ink);
     letter-spacing: -0.02em;
+    font-weight: 700;
   }
 
   ::selection {
     background: var(--color-brand-pale);
-    color: var(--color-brand-deep);
+    color: var(--color-brand-forest);
   }
 
   .tabular-nums {
@@ -140,5 +196,120 @@
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────
+ * MCBIZ component utilities — opt-in classes for buttons, cards, text.
+ * ──────────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Gradient text — for hero headlines */
+  .text-gradient-brand {
+    background: var(--gradient-hero-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Pill button — MCBIZ primary CTA (green with teal+blue glow) */
+  .btn-mcbiz-primary {
+    position: relative;
+    isolation: isolate;
+    background: var(--color-brand-primary);
+    color: #ffffff;
+    box-shadow: var(--shadow-brand-md);
+    transition:
+      box-shadow 0.3s var(--ease-out-expo),
+      transform 0.15s var(--ease-out-expo),
+      background 0.2s ease;
+    overflow: hidden;
+  }
+  .btn-mcbiz-primary::after {
+    /* sheen sweep on hover */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-sheen-white);
+    transform: translateX(-120%);
+    transition: transform 0.7s var(--ease-out-expo);
+    pointer-events: none;
+  }
+  .btn-mcbiz-primary:hover {
+    background: linear-gradient(135deg, #2da3a7 0%, #37b34a 100%);
+    box-shadow: var(--shadow-brand-lg);
+  }
+  .btn-mcbiz-primary:hover::after {
+    transform: translateX(120%);
+  }
+  .btn-mcbiz-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* Gradient pill — for hero / showcase CTAs */
+  .btn-mcbiz-gradient {
+    position: relative;
+    isolation: isolate;
+    background: var(--gradient-brand);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    color: #ffffff;
+    box-shadow: var(--shadow-brand-md);
+    transition:
+      background-position 0.6s var(--ease-out-expo),
+      box-shadow 0.3s var(--ease-out-expo),
+      transform 0.15s var(--ease-out-expo);
+    overflow: hidden;
+  }
+  .btn-mcbiz-gradient:hover {
+    background-position: 100% 50%;
+    box-shadow: var(--shadow-brand-lg);
+  }
+  .btn-mcbiz-gradient:active {
+    transform: translateY(1px);
+  }
+
+  /* Card with cyan ring + glow — MCBIZ feature card */
+  .card-mcbiz {
+    background: var(--color-surface);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-card-soft);
+    transition: box-shadow 0.3s var(--ease-out-expo), transform 0.25s var(--ease-out-expo);
+  }
+  .card-mcbiz:hover {
+    box-shadow: var(--shadow-card-cyan);
+    transform: translateY(-2px);
+  }
+
+  /* Dark surface (footer, hero accents) */
+  .surface-night {
+    background: var(--gradient-night);
+    color: #ffffff;
+  }
+  .surface-night h1, .surface-night h2, .surface-night h3,
+  .surface-night h4, .surface-night h5, .surface-night h6 {
+    color: #ffffff;
+  }
+
+  /* Mesh atmosphere — radial blobs scoped to a parent (use class on a wrapper) */
+  .mesh-atmosphere {
+    position: relative;
+    isolation: isolate;
+  }
+  .mesh-atmosphere::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 30% 30%, #2b80c21a, transparent 55%),
+      radial-gradient(circle at 70% 70%, #37b34a1a, transparent 55%);
+    pointer-events: none;
+  }
+
+  /* Pale mint chip — for SKU counters, badges */
+  .chip-mint {
+    background: var(--color-brand-pale);
+    color: var(--color-brand-forest);
+    font-weight: 600;
   }
 }

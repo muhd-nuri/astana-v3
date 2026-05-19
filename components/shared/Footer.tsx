@@ -10,11 +10,22 @@ export function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="relative isolate overflow-hidden bg-[var(--color-brand-deep)] text-[var(--color-page-bg)]">
+    <footer
+      className="relative isolate overflow-hidden text-[var(--color-page-bg)]"
+      style={{ background: "var(--gradient-night)" }}
+    >
       <DottedGridAtmosphere
         scope="absolute"
-        color="var(--color-page-bg)"
-        opacity={0.08}
+        color="#ffffff"
+        opacity={0.06}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(60% 60% at 100% 0%, #2da3a72e, transparent 60%), radial-gradient(50% 50% at 0% 100%, #37b34a26, transparent 60%)",
+        }}
       />
 
       <div className="pointer-events-none absolute inset-y-0 right-[-3vw] hidden select-none items-center md:flex">

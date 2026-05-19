@@ -40,12 +40,15 @@ const sizes: Record<NonNullable<CommonProps["size"]>, string> = {
 };
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-[var(--color-brand-primary)] text-[var(--color-page-bg)] shadow-[0_8px_24px_-12px_rgba(15,140,92,0.55)] hover:bg-[var(--color-brand-mid)] hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.18),0_10px_28px_-12px_rgba(15,140,92,0.7)]",
+  // MCBIZ primary: green fill with layered teal+blue glow and inset top highlight; sheen sweeps on hover
+  primary: "btn-mcbiz-primary",
+  // MCBIZ secondary: transparent hairline pill — adapts to light or dark surfaces.
+  // Consumers on dark surfaces override text/border via className; no bg hover
+  // so the surface (light or dark) shows through cleanly.
   secondary:
-    "bg-transparent text-[var(--color-ink)] border border-[var(--color-border-hairline)] hover:border-[var(--color-brand-primary)] hover:text-[var(--color-brand-primary)]",
+    "bg-transparent text-[var(--color-ink)] border border-[var(--color-border-hairline)] hover:border-[var(--color-brand-mid)] hover:text-[var(--color-brand-deep)]",
   ghost:
-    "bg-transparent text-[var(--color-ink)] hover:text-[var(--color-brand-primary)]",
+    "bg-transparent text-[var(--color-ink)] hover:text-[var(--color-brand-deep)]",
 };
 
 export function CTAButton(props: LinkProps | ButtonProps) {

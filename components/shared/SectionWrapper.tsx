@@ -19,7 +19,8 @@ type SectionWrapperProps = {
 const toneClasses: Record<Tone, string> = {
   page: "bg-[var(--color-page-bg)]",
   tint: "bg-[var(--color-surface-tint)]",
-  deep: "bg-[var(--color-brand-deep)] text-[var(--color-page-bg)]",
+  // MCBIZ night surface — uses the verbatim 3-stop navy gradient
+  deep: "text-[var(--color-page-bg)] [background:var(--gradient-night)]",
 };
 
 export function SectionWrapper({

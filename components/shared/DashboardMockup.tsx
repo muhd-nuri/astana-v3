@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowUpRight, TrendingUp, AlertCircle, Search } from "lucide-react";
+import { ArrowUpRight, TrendingUp, AlertCircle } from "lucide-react";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { useCountUp } from "@/hooks/use-count-up";
+import { BrowserChrome } from "./BrowserChrome";
 import { cn } from "@/lib/utils";
 
 type Variant = "hero" | "mini";
@@ -16,37 +17,13 @@ export function DashboardMockup({
 }) {
   const { t } = useLocale();
   return (
-    <div
-      role="img"
-      aria-label={t.a11y.decorativeDashboard}
-      className={cn(
-        "relative w-full overflow-hidden rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] text-[var(--color-ink)] shadow-[0_24px_60px_-20px_rgba(15,140,92,0.18)]",
-        className,
-      )}
+    <BrowserChrome
+      url={t.dashboard.urlBar}
+      ariaLabel={t.a11y.decorativeDashboard}
+      className={cn(className)}
     >
-      <BrowserChrome />
       {variant === "hero" ? <HeroBody /> : <MiniBody />}
-    </div>
-  );
-}
-
-function BrowserChrome() {
-  const { t } = useLocale();
-  return (
-    <div className="flex items-center gap-3 border-b border-[var(--color-border-hairline)] bg-[var(--color-surface-tint)]/60 px-3.5 py-2.5">
-      <div className="flex items-center gap-1.5">
-        <span className="block h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
-        <span className="block h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
-        <span className="block h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
-      </div>
-      <div className="flex flex-1 items-center justify-center">
-        <div className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-page-bg)] px-3 py-1 text-[0.7rem] text-[var(--color-ink-soft)] ring-1 ring-[var(--color-border-hairline)]">
-          <Search className="h-3 w-3" />
-          {t.dashboard.urlBar}
-        </div>
-      </div>
-      <span className="w-[42px]" />
-    </div>
+    </BrowserChrome>
   );
 }
 
@@ -67,7 +44,7 @@ function HeroBody() {
               {t.dashboard.todayPrefix}
               {formatted}
             </span>
-            <span className="mb-1 inline-flex items-center gap-1 rounded-full bg-[var(--color-brand-pale)] px-2 py-0.5 text-[0.7rem] font-semibold text-[var(--color-brand-deep)]">
+            <span className="mb-1 inline-flex items-center gap-1 rounded-full bg-[var(--color-brand-pale)] px-2 py-0.5 text-[0.7rem] font-semibold text-[var(--color-brand-forest)]">
               <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
               +12.4%
             </span>
@@ -83,7 +60,7 @@ function HeroBody() {
         <div className="flex h-full flex-col gap-3">
           <div className="rounded-xl border border-[var(--color-border-hairline)] bg-[var(--color-page-bg)] p-3.5">
             <div className="flex items-start gap-2.5">
-              <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-pale)] text-[var(--color-brand-deep)]">
+              <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)]">
                 <AlertCircle className="h-3.5 w-3.5" strokeWidth={2.5} />
               </span>
               <div className="min-w-0">
@@ -104,7 +81,7 @@ function HeroBody() {
                 key={p.name}
                 className="flex items-center gap-3 px-3 py-2.5 text-[0.78rem]"
               >
-                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--color-brand-pale)] text-[var(--color-brand-deep)] font-semibold tabular-nums">
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)] font-semibold tabular-nums">
                   {p.qty}
                 </span>
                 <span className="min-w-0 flex-1 truncate text-[var(--color-ink)]">
@@ -141,7 +118,7 @@ function MiniBody() {
             key={row.name}
             className="flex items-center gap-3 px-3.5 py-2.5 text-[0.8rem]"
           >
-            <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--color-brand-pale)] text-[var(--color-brand-deep)] tabular-nums font-semibold">
+            <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)] tabular-nums font-semibold">
               {row.qty}
             </span>
             <span className="min-w-0 flex-1 truncate text-[var(--color-ink)]">
