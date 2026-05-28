@@ -9,6 +9,7 @@ import {
   StoreGridMock,
   PayoutsMock,
 } from "@/components/shared/BrowserChromeMocks";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 import { cn } from "@/lib/utils";
 
 type FeatureBlockProps = {
@@ -131,20 +132,16 @@ function FeatureBlock({
 }
 
 export function FeatureSalesAnalytics() {
+  const { t } = useLocale();
+  const fb = t.featureBlocks.salesAnalytics;
   return (
     <FeatureBlock
       id="sales-analytics"
-      eyebrow="Sales Analytics"
-      title="See every ringgit move — from phone, tablet or desktop."
-      body="Access your reports from a smartphone, tablet or computer anytime, anywhere."
-      bullets={[
-        "View revenue, average sale and profit at a glance",
-        "Track sales trends and react to changes promptly",
-        "Determine best-selling items and categories",
-        "Full sales history with unlimited date range",
-        "Export to spreadsheets in one click",
-      ]}
-      ctaLabel="Explore reporting"
+      eyebrow={fb.eyebrow}
+      title={fb.title}
+      body={fb.body}
+      bullets={fb.bullets}
+      ctaLabel={fb.cta}
       ctaHref="https://astanabiz.com"
       mock={
         <SalesChartMock
@@ -159,21 +156,17 @@ export function FeatureSalesAnalytics() {
 }
 
 export function FeatureInventory() {
+  const { t } = useLocale();
+  const fb = t.featureBlocks.inventory;
   return (
     <FeatureBlock
       id="inventory"
-      eyebrow="Inventory Management"
-      title="Never run out of stock again."
-      body="Real-time stock visibility across every store with automatic low-stock alerts."
+      eyebrow={fb.eyebrow}
+      title={fb.title}
+      body={fb.body}
       imageLeft
-      bullets={[
-        "Track stock levels in real time",
-        "Receive automatic low-stock alerts",
-        "Send orders to suppliers and track receipts",
-        "Transfer stock between your stores",
-        "Print barcode labels in seconds",
-      ]}
-      ctaLabel="See inventory tools"
+      bullets={fb.bullets}
+      ctaLabel={fb.cta}
       ctaHref="https://astanabiz.com"
       mock={<InventoryListMock />}
     />
@@ -181,18 +174,16 @@ export function FeatureInventory() {
 }
 
 export function FeatureMultiStore() {
+  const { t } = useLocale();
+  const fb = t.featureBlocks.multiStore;
   return (
     <FeatureBlock
       id="multi-store"
-      eyebrow="Multi-store Management"
-      title="Grow from one shop to a hundred."
-      body="Manage every item, employee and customer across multiple locations from a single account."
-      bullets={[
-        "Compare performance of your stores side by side",
-        "Centralised items, staff and customers across locations",
-        "Scale up your business with automation ERP",
-      ]}
-      ctaLabel="Explore multi-store"
+      eyebrow={fb.eyebrow}
+      title={fb.title}
+      body={fb.body}
+      bullets={fb.bullets}
+      ctaLabel={fb.cta}
       ctaHref="https://astanabiz.com"
       mock={<StoreGridMock />}
     />
@@ -200,19 +191,17 @@ export function FeatureMultiStore() {
 }
 
 export function FeaturePayments() {
+  const { t } = useLocale();
+  const fb = t.featureBlocks.payments;
   return (
     <FeatureBlock
       id="payments"
-      eyebrow="Financial Management"
-      title="Reconcile every payout, automatically."
-      body="Automated sales summary with unrestricted date filters — see net profit before COGS, overheads and opex."
+      eyebrow={fb.eyebrow}
+      title={fb.title}
+      body={fb.body}
       imageLeft
-      bullets={[
-        "P&L, Balance sheet, AP & AR — built in",
-        "EPF, SOCSO, EIS payroll calculations",
-        "Profit margin, mark-up and inventory value",
-      ]}
-      ctaLabel="See financial suite"
+      bullets={fb.bullets}
+      ctaLabel={fb.cta}
       ctaHref="https://astanabiz.com/pricing"
       mock={<PayoutsMock />}
     />

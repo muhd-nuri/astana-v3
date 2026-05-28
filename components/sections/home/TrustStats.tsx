@@ -2,16 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useCountUp } from "@/hooks/use-count-up";
-
-const stats = [
-  { value: 10000, suffix: "+", label: "Installations" },
-  { value: 177, suffix: "", label: "Countries on Play Store" },
-  { value: 144, suffix: "", label: "Features built-in" },
-  { value: 300, suffix: "%", label: "Performance lift" },
-];
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function TrustStats() {
   const reduced = useReducedMotion();
+  const { t } = useLocale();
+  const band = t.trustBand;
+
   return (
     <section
       aria-label="Trust signals"
@@ -19,10 +16,10 @@ export function TrustStats() {
     >
       <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
         <p className="text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink-soft)]">
-          Trusted by SMEs across 14 Malaysian states & 177 countries
+          {band.subtitle}
         </p>
         <div className="mt-8 grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-x-6">
-          {stats.map((s, i) => (
+          {band.stats.map((s, i) => (
             <Stat key={s.label} stat={s} index={i} reduced={!!reduced} />
           ))}
         </div>
@@ -49,9 +46,7 @@ function Stat({
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
       className="text-center"
     >
-      <p
-        className="font-display text-[clamp(2.2rem,4.4vw,3rem)] font-bold leading-none tracking-[-0.02em] tabular-nums text-[var(--color-ink)]"
-      >
+      <p className="font-display text-[clamp(2.2rem,4.4vw,3rem)] font-bold leading-none tracking-[-0.02em] tabular-nums text-[var(--color-ink)]">
         {value.toLocaleString("en-MY")}
         <span className="text-gradient-brand">{stat.suffix}</span>
       </p>

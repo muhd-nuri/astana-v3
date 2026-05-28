@@ -5,9 +5,13 @@ import { MessageCircle, ArrowRight, Handshake } from "lucide-react";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { DottedGridAtmosphere } from "@/components/shared/DottedGridAtmosphere";
 import { links } from "@/lib/links";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function PartnershipCTA() {
   const reduced = useReducedMotion();
+  const { t } = useLocale();
+  const section = t.partnerCta;
+
   return (
     <section
       id="partnership"
@@ -33,7 +37,7 @@ export function PartnershipCTA() {
       >
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-white/80">
           <Handshake className="h-3.5 w-3.5" strokeWidth={2.25} />
-          Partner with us
+          {section.chip}
         </span>
         <h2
           className="mt-6 font-display font-bold tracking-[-0.02em] text-white"
@@ -42,11 +46,10 @@ export function PartnershipCTA() {
             lineHeight: "var(--text-display-lg--line-height)",
           }}
         >
-          Together, we can grow and change the world.
+          {section.heading}
         </h2>
         <p className="mt-5 max-w-[36rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-white/75">
-          Join 10,000+ Malaysian shop owners using Astana to run leaner, sell
-          more and stay in control — anywhere, anytime.
+          {section.body}
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -60,7 +63,7 @@ export function PartnershipCTA() {
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
             }
           >
-            Get started now — it&rsquo;s free
+            {section.ctaPrimary}
           </CTAButton>
           <CTAButton
             href="https://astanabiz.com/about"
@@ -69,7 +72,7 @@ export function PartnershipCTA() {
             size="lg"
             className="border-white/25 text-white hover:border-[var(--color-brand-light)] hover:text-[var(--color-brand-light)]"
           >
-            Become a partner
+            {section.ctaSecondary}
           </CTAButton>
         </div>
       </motion.div>

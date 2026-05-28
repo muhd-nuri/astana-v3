@@ -6,15 +6,13 @@ import { CTAButton } from "@/components/shared/CTAButton";
 import { BrowserChrome } from "@/components/shared/BrowserChrome";
 import { SalesChartMock } from "@/components/shared/BrowserChromeMocks";
 import { links } from "@/lib/links";
-
-const checks = [
-  "Unlimited reports & features",
-  "Cloud + offline sync",
-  "1-month free trial — no card",
-];
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function Hero() {
   const reduced = useReducedMotion();
+  const { t } = useLocale();
+  const h = t.heroSection;
+
   return (
     <section
       id="hero"
@@ -29,7 +27,7 @@ export function Hero() {
             className="font-body text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-deep)]"
           >
             <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-brand-primary)] align-middle" />
-            Point of Sale · Cloud + Offline · LHDN E-Invoice ready
+            {h.eyebrow}
           </motion.p>
 
           <motion.h1
@@ -42,11 +40,11 @@ export function Hero() {
               lineHeight: "var(--text-display-xl--line-height)",
             }}
           >
-            Empower your business{" "}
-            <span className="text-gradient-brand">without limit</span>
+            {h.headingPart1}{" "}
+            <span className="text-gradient-brand">{h.headingAccent}</span>
             <span className="text-[var(--color-brand-primary)]">.</span>
             <br className="hidden md:block" />
-            Anywhere, anytime.
+            {h.headingPart2}
           </motion.h1>
 
           <motion.p
@@ -55,9 +53,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="mt-6 max-w-[34rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-ink-soft)]"
           >
-            Manage and monitor sales, inventory, and employees from one cloud
-            POS. Download and register now to get free unlimited access to all
-            reports and features.
+            {h.body}
           </motion.p>
 
           <motion.ul
@@ -66,7 +62,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="mt-6 flex flex-col gap-2 text-[0.92rem] text-[var(--color-ink-soft)]"
           >
-            {checks.map((c) => (
+            {h.checks.map((c) => (
               <li key={c} className="flex items-center gap-2.5">
                 <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)]">
                   <Check className="h-3 w-3" strokeWidth={3} />
@@ -92,7 +88,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
               }
             >
-              Get started — free
+              {h.ctaPrimary}
             </CTAButton>
             <CTAButton
               href="https://astanabiz.com/pricing"
@@ -100,7 +96,7 @@ export function Hero() {
               variant="secondary"
               size="lg"
             >
-              See pricing
+              {h.ctaSecondary}
             </CTAButton>
           </motion.div>
         </div>

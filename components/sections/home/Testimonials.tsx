@@ -2,30 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
-
-const quotes = [
-  {
-    name: "Sophia",
-    role: "Business Owner, US",
-    title: "User friendly. Easy to use. Responsibility.",
-    body: "I have used Astana POS for several shops and they provide us the best point-of-sales solutions and great features. The experience has been pleasant, professional and exceeding our expectations. The team is always thinking to improve their apps.",
-  },
-  {
-    name: "Wati",
-    role: "Business Owner, Restaurant",
-    title: "Bandingkan harga dan features mereka!",
-    body: "Mereka memberikan servis dan pandangan yang baik untuk bisnes saya. Ialah baru buka kedai — mereka menggunakan pengalaman untuk memberikan tawaran harga fleksibel dan sangat murah berbanding di pasaran. Terima kasih Astana POS.",
-  },
-  {
-    name: "Haiqal",
-    role: "DNA Dealer · Distributor · Reseller",
-    title: "Dependable. Responsive. Professional partner.",
-    body: "Astana POS Apps has collaborated with DNA team for several projects — including becoming the top-1 distributor and reseller for their software across over 3,000 clients. We're thrilled to continue our journey with Astana POS.",
-  },
-];
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function Testimonials() {
   const reduced = useReducedMotion();
+  const { t } = useLocale();
+  const section = t.testimonials;
+
   return (
     <section
       id="testimonials"
@@ -34,7 +17,7 @@ export function Testimonials() {
       <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-deep)]">
-            Our clients speak
+            {section.eyebrow}
           </p>
           <h2
             className="mt-4 font-display font-bold tracking-[-0.02em] text-[var(--color-ink)]"
@@ -43,13 +26,13 @@ export function Testimonials() {
               lineHeight: "var(--text-display-lg--line-height)",
             }}
           >
-            10,000+ owners.{" "}
-            <span className="text-gradient-brand">One platform.</span>
+            {section.headingPart1}{" "}
+            <span className="text-gradient-brand">{section.headingAccent}</span>
           </h2>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {quotes.map((q, i) => (
+          {section.items.map((q, i) => (
             <motion.figure
               key={q.name}
               initial={reduced ? false : { opacity: 0, y: 16 }}
