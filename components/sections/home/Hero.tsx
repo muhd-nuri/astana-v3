@@ -23,7 +23,11 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="font-display font-bold tracking-[-0.025em] text-[var(--color-ink)] text-[1.875rem] leading-[1.1] lg:text-[var(--text-display-xl)] lg:leading-[var(--text-display-xl--line-height)]"
+            className="font-display font-bold tracking-[-0.025em] text-[var(--color-ink)]"
+            style={{
+              fontSize: "clamp(1.875rem, 6vw, 4.5rem)",
+              lineHeight: "var(--text-display-xl--line-height)",
+            }}
           >
             {h.headingPart1}{" "}
             <span className="text-gradient-brand">{h.headingAccent}</span>
