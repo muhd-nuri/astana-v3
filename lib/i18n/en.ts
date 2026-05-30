@@ -164,7 +164,7 @@ export const en: Dictionary = {
         ],
       },
     ],
-    copyright: "© 2026 Astana Group Sdn Bhd. All rights reserved.",
+    copyright: "© 2026 Astana Solutions (M) Sdn Bhd (202001004296 / 1360616-V). All rights reserved.",
     siblingPill: "Part of Astana Group · See also: MCBIZ",
   },
   dashboard: {
@@ -412,7 +412,7 @@ export const en: Dictionary = {
     body: "Astana POS started with one goal: help Malaysian small business owners grow without limits.",
     missionEyebrow: "Our mission",
     missionHeading: "Success is our mission. Keep going forward.",
-    missionBody: "Since 2020, Astana Group has helped over 10,000 small businesses across 14 Malaysian states — and 177 countries worldwide — to operate smarter, sell more and grow without limits.\n\nWe believe every business owner deserves the same tools as a large corporation. That's why Astana POS offers unlimited features at an affordable price — so you can focus on your business, not your system.",
+    missionBody: "Since 2020, Astana Solutions (M) Sdn Bhd has helped over 10,000 small businesses across 14 Malaysian states — and 177 countries worldwide — to operate smarter, sell more and grow without limits.\n\nWe believe every business owner deserves the same tools as a large corporation. That's why Astana POS offers unlimited features at an affordable price — so you can focus on your business, not your system.",
   },
   industriesPage: {
     eyebrow: "Industries",
