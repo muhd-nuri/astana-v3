@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { LanguageToggle } from "./LanguageToggle";
 import { CTAButton } from "./CTAButton";
-import { links } from "@/lib/links";
 import {
   Sheet,
   SheetContent,
@@ -64,13 +64,8 @@ export function Navbar() {
       </AnimatePresence>
 
       <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-6 py-4 md:px-10">
-        <Link
-          href="/"
-          className="font-display text-[1.05rem] font-bold leading-none tracking-tight text-[var(--color-ink)]"
-          aria-label="Astana POS — beranda"
-        >
-          Astana POS
-          <span className="text-[var(--color-brand-primary)]">.</span>
+        <Link href="/" aria-label="Astana POS — beranda">
+          <Image src="/logo.png" alt="Astana POS" width={131} height={28} className="h-7 w-auto" />
         </Link>
 
         <nav
@@ -91,10 +86,10 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <CTAButton
-            href={links.whatsapp()}
+            href="https://hub.astanabiz.com"
             external
             variant="primary"
-            icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
+            icon={<LogIn className="h-4 w-4" strokeWidth={2.25} />}
           >
             {t.nav.cta}
           </CTAButton>
@@ -102,6 +97,15 @@ export function Navbar() {
 
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageToggle />
+          <a
+            href="https://hub.astanabiz.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.nav.cta}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border-hairline)] text-[var(--color-ink)] transition-colors hover:bg-[var(--color-surface-tint)]"
+          >
+            <LogIn className="h-5 w-5" strokeWidth={2} />
+          </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
@@ -117,8 +121,8 @@ export function Navbar() {
               className="flex w-full max-w-sm flex-col bg-[var(--color-page-bg)] p-0 text-[var(--color-ink)]"
             >
               <SheetHeader className="flex flex-row items-center justify-between border-b border-[var(--color-border-hairline)] px-6 py-4">
-                <SheetTitle className="font-display text-lg font-bold">
-                  Astana POS<span className="text-[var(--color-brand-primary)]">.</span>
+                <SheetTitle>
+                  <Image src="/logo.png" alt="Astana POS" width={131} height={28} className="h-7 w-auto" />
                 </SheetTitle>
                 <button
                   type="button"
@@ -143,12 +147,12 @@ export function Navbar() {
               </nav>
               <div className="border-t border-[var(--color-border-hairline)] px-6 py-5">
                 <CTAButton
-                  href={links.whatsapp()}
+                  href="https://hub.astanabiz.com"
                   external
                   variant="primary"
                   size="lg"
                   className="w-full"
-                  icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
+                  icon={<LogIn className="h-4 w-4" strokeWidth={2.25} />}
                 >
                   {t.nav.cta}
                 </CTAButton>

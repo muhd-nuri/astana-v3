@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle, ArrowRight, Check } from "lucide-react";
-import { CTAButton } from "@/components/shared/CTAButton";
-import { BrowserChrome } from "@/components/shared/BrowserChrome";
-import { SalesChartMock } from "@/components/shared/BrowserChromeMocks";
+import { Check } from "lucide-react";
+import { PlayStoreBadge } from "@/components/shared/PlayStoreBadge";
 import { links } from "@/lib/links";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
@@ -16,34 +14,20 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate overflow-hidden pt-14 pb-20 md:pt-20 md:pb-28"
+      className="relative isolate overflow-hidden pt-8 pb-12 md:pt-20 md:pb-28"
     >
-      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-12 items-center gap-y-12 px-6 md:gap-x-10 md:px-10">
-        <div className="col-span-12 lg:col-span-6">
-          <motion.p
-            initial={reduced ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-            className="font-body text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-deep)]"
-          >
-            <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-brand-primary)] align-middle" />
-            {h.eyebrow}
-          </motion.p>
-
+      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-12 items-center gap-y-6 px-6 md:gap-x-10 md:gap-y-10 md:px-10">
+        {/* Text column — appears below video on mobile, left on desktop */}
+        <div className="col-span-12 order-2 text-center lg:order-1 lg:col-span-6 lg:text-left">
           <motion.h1
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="mt-5 font-display font-bold tracking-[-0.025em] text-[var(--color-ink)]"
-            style={{
-              fontSize: "var(--text-display-xl)",
-              lineHeight: "var(--text-display-xl--line-height)",
-            }}
+            className="font-display font-bold tracking-[-0.025em] text-[var(--color-ink)] text-[1.875rem] leading-[1.1] lg:text-[var(--text-display-xl)] lg:leading-[var(--text-display-xl--line-height)]"
           >
             {h.headingPart1}{" "}
             <span className="text-gradient-brand">{h.headingAccent}</span>
-            <span className="text-[var(--color-brand-primary)]">.</span>
-            <br className="hidden md:block" />
+            <span className="text-[var(--color-brand-primary)]">.</span>{" "}
             {h.headingPart2}
           </motion.h1>
 
@@ -51,7 +35,7 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="mt-6 max-w-[34rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-ink-soft)]"
+            className="mx-auto mt-4 hidden max-w-[34rem] text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-ink-soft)] md:block lg:mx-0"
           >
             {h.body}
           </motion.p>
@@ -60,7 +44,7 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="mt-6 flex flex-col gap-2 text-[0.92rem] text-[var(--color-ink-soft)]"
+            className="mt-4 flex flex-col items-center gap-1.5 text-[0.88rem] text-[var(--color-ink-soft)] lg:items-start lg:gap-2 lg:text-[0.92rem]"
           >
             {h.checks.map((c) => (
               <li key={c} className="flex items-center gap-2.5">
@@ -76,36 +60,18 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-5 flex flex-wrap items-center justify-center gap-3 lg:mt-8 lg:justify-start"
           >
-            <CTAButton
-              href={links.whatsapp()}
-              external
-              variant="primary"
-              size="lg"
-              icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
-              trailingIcon={
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
-              }
-            >
-              {h.ctaPrimary}
-            </CTAButton>
-            <CTAButton
-              href="https://astanabiz.com/pricing"
-              external
-              variant="secondary"
-              size="lg"
-            >
-              {h.ctaSecondary}
-            </CTAButton>
+            <PlayStoreBadge href={links.playStore()} />
           </motion.div>
         </div>
 
+        {/* Video column — appears above text on mobile, right on desktop */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="relative col-span-12 lg:col-span-6"
+          className="relative col-span-12 order-1 lg:order-2 lg:col-span-6"
         >
           <div
             aria-hidden="true"
@@ -116,14 +82,16 @@ export function Hero() {
               filter: "blur(48px)",
             }}
           />
-          <BrowserChrome url="app.astanabiz.com/dashboard">
-            <SalesChartMock
-              trendLabel="Today — across 4 stores"
-              total="RM 12,480"
-              delta="+18.2%"
-              caption="Best hour: 2pm — RM 1,820"
-            />
-          </BrowserChrome>
+          <video
+            src="/Hero-Video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full rounded-2xl shadow-xl"
+            aria-label={t.a11y.decorativeDashboard}
+          />
         </motion.div>
       </div>
     </section>

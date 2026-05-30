@@ -144,6 +144,15 @@ export type Dictionary = {
     faqEyebrow: string;
     faqHeading: string;
     faqs: Array<{ q: string; a: string }>;
+    plansEyebrow: string;
+    plansHeading: string;
+    plansBody: string;
+    billingMonthly: string;
+    billingAnnual: string;
+    annualSavings: string;
+    perStore: string;
+    trialNote: string;
+    addons: Array<{ name: string; description: string }>;
   };
   featuresPage: {
     eyebrow: string;
@@ -185,7 +194,7 @@ export const ms: Dictionary = {
     about: "Tentang",
     blog: "Blog",
     contact: "Hubungi",
-    cta: "Hubungi WhatsApp",
+    cta: "Log Masuk",
     menuOpen: "Buka menu",
     menuClose: "Tutup menu",
   },
@@ -550,7 +559,20 @@ export const ms: Dictionary = {
     ],
     subscribeHeading: "Teruskan lepas percubaan.",
     subscribeBody: "Langgan melalui WhatsApp — pilih bulanan atau tahunan. Harga fleksibel, tamatkan bila-bila masa.",
-    subscribeCta: "Hubungi kami untuk harga",
+    subscribeCta: "Langgan via WhatsApp",
+    plansEyebrow: "Harga Langganan",
+    plansHeading: "Pilih modul yang anda perlukan.",
+    plansBody: "Setiap modul dilanggani berasingan — bayar hanya untuk apa yang anda gunakan. Mulakan dengan percubaan 30 hari percuma.",
+    billingMonthly: "Bulanan",
+    billingAnnual: "Tahunan",
+    annualSavings: "Jimat 2 bulan",
+    perStore: "per kedai",
+    trialNote: "30 hari percubaan percuma",
+    addons: [
+      { name: "Sejarah Jualan Tanpa Had", description: "Akses laporan jualan penuh tanpa had tempoh. Jejak trend, produk terlaris, dan prestasi merentas setiap kedai." },
+      { name: "Pengurusan Pekerja Tanpa Had", description: "Cipta akaun staf tanpa had, tetapkan komisen, urus hak akses dan jejak prestasi pekerja mengikut cawangan." },
+      { name: "Pengurusan Inventori Tanpa Had", description: "Jejak stok masa nyata, pesanan pembelian, penerimaan barang dan nilai inventori — semua tanpa had." },
+    ],
     faqEyebrow: "Soalan lazim",
     faqHeading: "Yang selalu ditanya.",
     faqs: [

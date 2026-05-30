@@ -3,7 +3,7 @@ const FALLBACK = {
   whatsappMessage:
     "Hai Astana POS! Saya berminat dengan sistem juruwang cloud anda — boleh kongsi maklumat lanjut?",
   calendly: "",
-  playStore: "",
+  playStore: "https://play.google.com/store/apps/details?id=salesplay.astanapos",
   hubRegister: "https://hub.astanabiz.com/registration_form",
   hubLogin: "https://hub.astanabiz.com/",
   mcbiz: "https://mcbiz.astanabiz.com",
