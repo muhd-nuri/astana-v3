@@ -427,7 +427,7 @@ export const en: Dictionary = {
     body: "Pick the easiest way for you. We're ready to help.",
     options: [
       {
-        icon: "MessageCircle",
+        icon: "WhatsApp",
         title: "WhatsApp",
         body: "Chat with us directly on WhatsApp for a free demo or any questions about Astana POS.",
         cta: "Start chatting",

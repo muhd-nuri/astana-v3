@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { BarChart3, Users, Boxes, MessageCircle, type LucideIcon } from "lucide-react";
+import { BarChart3, Users, Boxes, type LucideIcon } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { cn } from "@/lib/utils";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { links } from "@/lib/links";
@@ -124,7 +125,7 @@ export function PricingPlans() {
                   variant="primary"
                   size="lg"
                   className="mt-6 w-full justify-center"
-                  icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
+                  icon={<WhatsAppIcon className="h-4 w-4" />}
                 >
                   {p.subscribeCta}
                 </CTAButton>

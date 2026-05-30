@@ -1,12 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle, UserPlus, MapPin, ArrowRight, type LucideIcon } from "lucide-react";
+import { UserPlus, MapPin, ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { links } from "@/lib/links";
 
-const iconMap: Record<string, LucideIcon> = {
-  MessageCircle,
+type IconComponent = React.ComponentType<{ className?: string; strokeWidth?: number }>;
+
+const iconMap: Record<string, IconComponent> = {
+  WhatsApp: WhatsAppIcon,
   UserPlus,
   MapPin,
 };
@@ -40,7 +43,7 @@ export function ContactOptions() {
       <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {c.options.map((opt, i) => {
-            const Icon = iconMap[opt.icon] ?? MessageCircle;
+            const Icon = iconMap[opt.icon] ?? WhatsAppIcon;
             const { href, external } = resolveHref(opt.href);
             return (
               <motion.div

@@ -613,7 +613,7 @@ export const ms: Dictionary = {
     body: "Pilih cara yang paling mudah untuk anda. Kami sedia membantu.",
     options: [
       {
-        icon: "MessageCircle",
+        icon: "WhatsApp",
         title: "WhatsApp",
         body: "Hubungi kami terus di WhatsApp untuk demo percuma atau soalan tentang Astana POS.",
         cta: "Mula berbual",

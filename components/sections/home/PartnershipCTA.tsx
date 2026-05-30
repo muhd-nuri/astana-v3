@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle, ArrowRight, Handshake } from "lucide-react";
+import { ArrowRight, Handshake } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { DottedGridAtmosphere } from "@/components/shared/DottedGridAtmosphere";
 import { links } from "@/lib/links";
@@ -58,7 +59,7 @@ export function PartnershipCTA() {
             external
             variant="primary"
             size="lg"
-            icon={<MessageCircle className="h-4 w-4" strokeWidth={2.25} />}
+            icon={<WhatsAppIcon className="h-4 w-4" />}
             trailingIcon={
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5" />
             }
