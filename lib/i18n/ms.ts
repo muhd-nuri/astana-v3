@@ -17,8 +17,16 @@ export type Dictionary = {
     blog: string;
     contact: string;
     cta: string;
+    ctaTryFree: string;
     menuOpen: string;
     menuClose: string;
+    descFeatures: string;
+    descIndustries: string;
+    descPricing: string;
+    descAbout: string;
+    descPartner: string;
+    descBlog: string;
+    descContact: string;
   };
   languageToggle: { bm: string; en: string; label: string };
   hero: {
@@ -197,8 +205,16 @@ export const ms: Dictionary = {
     blog: "Blog",
     contact: "Hubungi",
     cta: "Log Masuk",
+    ctaTryFree: "Cuba Percuma",
     menuOpen: "Buka menu",
     menuClose: "Tutup menu",
+    descFeatures: "144 ciri terbina untuk perniagaan anda",
+    descIndustries: "Pilih industri yang sesuai untuk anda",
+    descPricing: "Harga mudah, tiada kos tersembunyi",
+    descAbout: "Terminal POS, pencetak dan periferal",
+    descPartner: "Jadi reseller, distributor atau affiliate",
+    descBlog: "Tips dan kemaskini untuk PKS",
+    descContact: "Hubungi pasukan kami — kami balas segera",
   },
   languageToggle: {
     bm: "BM",

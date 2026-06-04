@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, LogIn, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, LogIn, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { links } from "@/lib/links";
 import { LanguageToggle } from "./LanguageToggle";
 import { CTAButton } from "./CTAButton";
 import {
@@ -30,8 +31,39 @@ const PARTNER_SUB = [
 const linkClass =
   "text-[0.9rem] font-medium text-[var(--color-ink-soft)] transition-colors hover:text-[var(--color-ink)]";
 
-const mobileLinkClass =
-  "-mx-2 rounded-lg px-2 py-3 font-display text-2xl font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand-primary)]";
+function NavCard({
+  title,
+  desc,
+  isDropdown = false,
+  chevronOpen = false,
+}: {
+  title: string;
+  desc: string;
+  isDropdown?: boolean;
+  chevronOpen?: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-md border border-[var(--color-border-hairline)] bg-white px-4 py-3.5 transition-colors active:bg-gray-50">
+      <div className="flex-1 text-left">
+        <p className="font-display text-[0.97rem] font-bold text-[var(--color-ink)]">{title}</p>
+        <p className="mt-0.5 text-[0.82rem] leading-snug text-[var(--color-ink-soft)]">{desc}</p>
+      </div>
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-hairline)]">
+        {isDropdown ? (
+          <ChevronDown
+            className={cn(
+              "h-3.5 w-3.5 text-[var(--color-ink-soft)] transition-transform duration-200",
+              chevronOpen && "rotate-180",
+            )}
+            strokeWidth={2.5}
+          />
+        ) : (
+          <ArrowRight className="h-3.5 w-3.5 text-[var(--color-ink-soft)]" strokeWidth={2.5} />
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function Navbar() {
   const { t } = useLocale();
@@ -182,48 +214,62 @@ export function Navbar() {
             <SheetContent
               side="right"
               showCloseButton={false}
-              className="flex w-full max-w-sm flex-col bg-[var(--color-page-bg)] p-0 text-[var(--color-ink)]"
+              className="flex !w-full !max-w-full flex-col p-0 text-[var(--color-ink)]"
+              style={{ background: "linear-gradient(160deg, #f0fdf4 0%, #f8fafc 55%, #ffffff 100%)" }}
             >
-              <SheetHeader className="flex flex-row items-center justify-between border-b border-[var(--color-border-hairline)] px-6 py-4">
+              {/* Header */}
+              <SheetHeader className="flex flex-row items-center justify-between border-b border-[var(--color-border-hairline)] bg-white px-5 py-4">
                 <SheetTitle>
-                  <Image src="/logo.png" alt="Astana POS" width={131} height={28} className="h-7 w-auto" />
+                  <Image src="/logo.png" alt="Astana POS" width={120} height={26} className="h-6 w-auto" />
                 </SheetTitle>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label={t.nav.menuClose}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border-hairline)] text-[var(--color-ink-soft)]"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4" />
                 </button>
               </SheetHeader>
-              <nav className="flex flex-1 flex-col gap-1 px-6 py-6" aria-label="Mobile primary">
-                <Link href="/features" onClick={() => setOpen(false)} className={mobileLinkClass}>{t.nav.features}</Link>
-                <Link href="/industries" onClick={() => setOpen(false)} className={mobileLinkClass}>{t.nav.industries}</Link>
-                <Link href="/pricing" onClick={() => setOpen(false)} className={mobileLinkClass}>{t.nav.pricing}</Link>
+
+              {/* Nav cards */}
+              <nav
+                className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 py-4"
+                aria-label="Mobile primary"
+              >
+                <Link href="/features" onClick={() => setOpen(false)}>
+                  <NavCard title={t.nav.features} desc={t.nav.descFeatures} />
+                </Link>
+
+                <Link href="/industries" onClick={() => setOpen(false)}>
+                  <NavCard title={t.nav.industries} desc={t.nav.descIndustries} />
+                </Link>
+
+                <Link href="/pricing" onClick={() => setOpen(false)}>
+                  <NavCard title={t.nav.pricing} desc={t.nav.descPricing} />
+                </Link>
+
                 <a
                   href="https://mcbiz.astanabiz.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className={mobileLinkClass}
                 >
-                  {t.nav.about}
+                  <NavCard title={t.nav.about} desc={t.nav.descAbout} />
                 </a>
-                {/* Partner accordion */}
+
+                {/* Partner accordion card */}
                 <div>
                   <button
                     type="button"
+                    className="w-full"
                     onClick={() => setMobilePartnerOpen((v) => !v)}
-                    className="-mx-2 flex w-full items-center justify-between rounded-lg px-2 py-3 font-display text-2xl font-medium tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand-primary)]"
                   >
-                    {t.nav.partner}
-                    <ChevronDown
-                      className={cn(
-                        "h-5 w-5 transition-transform duration-200",
-                        mobilePartnerOpen && "rotate-180",
-                      )}
-                      strokeWidth={2}
+                    <NavCard
+                      title={t.nav.partner}
+                      desc={t.nav.descPartner}
+                      isDropdown
+                      chevronOpen={mobilePartnerOpen}
                     />
                   </button>
                   <AnimatePresence initial={false}>
@@ -235,7 +281,7 @@ export function Navbar() {
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="ml-3 flex flex-col border-l border-[var(--color-border-hairline)] pl-4 pb-2">
+                        <div className="mt-2 flex flex-col gap-1.5 pl-3">
                           {PARTNER_SUB.map((sub) => (
                             <a
                               key={sub.label}
@@ -243,9 +289,12 @@ export function Navbar() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() => setOpen(false)}
-                              className="py-2 text-[1.1rem] font-medium text-[var(--color-ink-soft)] transition-colors hover:text-[var(--color-brand-primary)]"
+                              className="flex items-center justify-between rounded-xl border border-[var(--color-border-hairline)] bg-white/80 px-4 py-3"
                             >
-                              {sub.label}
+                              <span className="text-[0.9rem] font-medium text-[var(--color-ink)]">
+                                {sub.label}
+                              </span>
+                              <ArrowRight className="h-3.5 w-3.5 text-[var(--color-ink-soft)]" strokeWidth={2.5} />
                             </a>
                           ))}
                         </div>
@@ -253,10 +302,18 @@ export function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
-                <Link href="/blog" onClick={() => setOpen(false)} className={mobileLinkClass}>{t.nav.blog}</Link>
-                <Link href="/contact" onClick={() => setOpen(false)} className={mobileLinkClass}>{t.nav.contact}</Link>
+
+                <Link href="/blog" onClick={() => setOpen(false)}>
+                  <NavCard title={t.nav.blog} desc={t.nav.descBlog} />
+                </Link>
+
+                <Link href="/contact" onClick={() => setOpen(false)}>
+                  <NavCard title={t.nav.contact} desc={t.nav.descContact} />
+                </Link>
               </nav>
-              <div className="border-t border-[var(--color-border-hairline)] px-6 py-5">
+
+              {/* CTA */}
+              <div className="border-t border-[var(--color-border-hairline)] px-5 py-5">
                 <CTAButton
                   href="https://hub.astanabiz.com"
                   external
