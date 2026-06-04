@@ -39,7 +39,7 @@ export function IndustryStrip() {
     <SectionWrapper
       id="industries"
       tone="page"
-      className="py-[clamp(2.5rem,5vw,4rem)]"
+      className="overflow-hidden py-[clamp(2.5rem,5vw,4rem)]"
     >
       <div className="flex flex-col items-center gap-8">
         <p className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-ink-soft)]">

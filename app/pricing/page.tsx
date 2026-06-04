@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PricingHeroSection } from "@/components/sections/pricing/PricingHeroSection";
+import { PricingApps } from "@/components/sections/pricing/PricingApps";
 import { PricingPlans } from "@/components/sections/pricing/PricingPlans";
 import { PricingFAQ } from "@/components/sections/pricing/PricingFAQ";
 import { PartnershipCTA } from "@/components/sections/home/PartnershipCTA";
@@ -14,6 +15,7 @@ export default function PricingPage() {
   return (
     <main id="main">
       <PricingHeroSection />
+      <PricingApps />
       <PricingPlans />
       <PricingFAQ />
       <PartnershipCTA />

@@ -44,7 +44,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(bricolageGrotesque.variable, inter.variable)}
     >
-      <body className="font-body antialiased">
+      <body className="overflow-x-clip font-body antialiased">
         <LocaleProvider>
           <DottedGridAtmosphere />
           <Navbar />

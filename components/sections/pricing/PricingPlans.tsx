@@ -25,7 +25,7 @@ export function PricingPlans() {
       className="relative isolate py-[clamp(4rem,8vw,var(--spacing-section))]"
       style={{ background: "var(--gradient-surface-sky)" }}
     >
-      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
+      <div className="mx-auto w-full max-w-3xl px-6 md:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-deep)]">
