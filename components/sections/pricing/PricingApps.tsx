@@ -8,29 +8,25 @@ const APPS = [
     name: "Astana POS - Point of Sale",
     description: "Seamless Billing, Inventory, CRM and Analytics platform",
     label: "Free Trial 30 Days",
-    labelClass: "text-[#2563eb]",
-    bg: "#bfcff2", // blue-600
+    bg: "#bfcff2",
   },
   {
     name: "Astana Customer Display",
     description: "Customer-facing screen with their order information",
     label: "Free",
-    labelClass: "text-[#9333ea]",
-    bg: "#dbbef7", // purple-600
+    bg: "#dbbef7",
   },
   {
     name: "Astana Kitchen Display",
     description: "Informs kitchen staff of the pending customer orders",
     label: "Free",
-    labelClass: "text-[#ea580c]",
-    bg: "#fcd1ba", // orange-600
+    bg: "#fcd1ba",
   },
   {
     name: "Astana Dashboard",
     description: "Provide access to key business information instantly",
     label: "Free",
-    labelClass: "text-[#0891b2]",
-    bg: "#b1e7f5", // cyan-600
+    bg: "#b1e7f5",
   },
 ] as const;
 
@@ -74,7 +70,7 @@ export function PricingApps() {
             </div>
 
             {/* Price label */}
-            <p className={`w-16 shrink-0 text-right text-[0.85rem] font-semibold leading-tight ${app.labelClass}`}>
+            <p className="w-16 shrink-0 text-right text-[0.85rem] font-semibold leading-tight text-[var(--color-brand-forest)]">
               {app.label}
             </p>
           </motion.div>
