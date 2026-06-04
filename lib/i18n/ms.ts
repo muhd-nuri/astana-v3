@@ -579,7 +579,7 @@ export const ms: Dictionary = {
     subscribeBody: "Langgan melalui WhatsApp — pilih bulanan atau tahunan. Harga fleksibel, tamatkan bila-bila masa.",
     subscribeCta: "Langgan via WhatsApp",
     plansEyebrow: "Harga Langganan",
-    plansHeading: "3 modul. Satu harga.",
+    plansHeading: "3 ciri. Satu harga.",
     plansBody: "Sejarah Jualan, Pengurusan Pekerja & Inventori Tanpa Had — semuanya dibundel bersama, bukan dikenakan caj berasingan.",
     billingMonthly: "Bulanan",
     billingAnnual: "Tahunan",

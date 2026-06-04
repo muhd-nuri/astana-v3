@@ -384,7 +384,7 @@ export const en: Dictionary = {
     subscribeBody: "Subscribe via WhatsApp — monthly or annual. Flexible pricing, cancel anytime.",
     subscribeCta: "Subscribe via WhatsApp",
     plansEyebrow: "Subscription Pricing",
-    plansHeading: "All 3 modules. One price.",
+    plansHeading: "All 3 features. One price.",
     plansBody: "Unlimited Sales History, Employee & Inventory Management come bundled together — not billed separately.",
     billingMonthly: "Monthly",
     billingAnnual: "Annual",

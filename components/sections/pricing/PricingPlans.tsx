@@ -53,27 +53,10 @@ export function PricingPlans() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 overflow-hidden rounded-2xl border border-[var(--color-border-hairline)] bg-white shadow-sm"
         >
-          {/* Card header: price left, toggle right */}
-          <div className="flex flex-col gap-5 border-b border-[var(--color-border-hairline)] px-7 py-6 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <div className="flex items-end gap-2">
-                <span className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
-                  RM {cycle === "monthly" ? "79" : "790"}
-                </span>
-                <div className="mb-0.5 flex flex-col leading-snug">
-                  <span className="text-[0.82rem] text-[var(--color-ink-soft)]">
-                    / {cycle === "monthly" ? p.billingMonthly.toLowerCase() : p.billingAnnual.toLowerCase()}
-                  </span>
-                  <span className="text-[0.82rem] text-[var(--color-ink-soft)]">{p.perStore}</span>
-                </div>
-              </div>
-              <span className="chip-mint mt-3 inline-block text-[0.68rem] font-semibold uppercase tracking-[0.1em]">
-                {p.trialNote}
-              </span>
-            </div>
-
+          {/* Card header: centered price + toggle */}
+          <div className="flex flex-col items-center gap-4 border-b border-[var(--color-border-hairline)] px-7 py-7 text-center">
             {/* Billing toggle */}
-            <div className="inline-flex gap-1 self-start rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-surface-tint)] p-1">
+            <div className="inline-flex gap-1 rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-surface-tint)] p-1">
               <button
                 type="button"
                 onClick={() => setCycle("monthly")}
@@ -102,6 +85,23 @@ export function PricingPlans() {
                 </span>
               </button>
             </div>
+
+            {/* Price */}
+            <div className="flex items-end justify-center gap-2">
+              <span className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
+                RM {cycle === "monthly" ? "79" : "790"}
+              </span>
+              <div className="mb-0.5 flex flex-col leading-snug text-left">
+                <span className="text-[0.82rem] text-[var(--color-ink-soft)]">
+                  / {cycle === "monthly" ? p.billingMonthly.toLowerCase() : p.billingAnnual.toLowerCase()}
+                </span>
+                <span className="text-[0.82rem] text-[var(--color-ink-soft)]">{p.perStore}</span>
+              </div>
+            </div>
+
+            <span className="chip-mint text-[0.68rem] font-semibold uppercase tracking-[0.1em]">
+              {p.trialNote}
+            </span>
           </div>
 
           {/* Feature rows */}

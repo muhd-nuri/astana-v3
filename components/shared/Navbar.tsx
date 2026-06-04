@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, LogIn, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
-import { links } from "@/lib/links";
 import { LanguageToggle } from "./LanguageToggle";
 import { CTAButton } from "./CTAButton";
 import {
