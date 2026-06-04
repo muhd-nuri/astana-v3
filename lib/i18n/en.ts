@@ -406,6 +406,13 @@ export const en: Dictionary = {
       { q: "Where is my data stored?", a: "Data is automatically backed up to the cloud Backoffice portal, and stored on-device when offline." },
     ],
   },
+  blogPage: {
+    eyebrow: "Blog",
+    headingPart1: "Insights for",
+    headingAccent: "Malaysian SMEs",
+    headingPart2: ".",
+    body: "Tips, guides and updates to help you run a smarter business.",
+  },
   featuresPage: {
     eyebrow: "Features",
     headingPart1: "144 features for",

@@ -163,6 +163,13 @@ export type Dictionary = {
     trialNote: string;
     addons: Array<{ name: string; description: string }>;
   };
+  blogPage: {
+    eyebrow: string;
+    headingPart1: string;
+    headingAccent: string;
+    headingPart2: string;
+    body: string;
+  };
   featuresPage: {
     eyebrow: string;
     headingPart1: string;
@@ -600,6 +607,13 @@ export const ms: Dictionary = {
       { q: "Adakah ia menyokong pengimbas barcode?", a: "Ya, pengimbasan barcode sudah terbina dalam dan berfungsi pada semua peranti." },
       { q: "Di mana data saya disimpan?", a: "Data disandarkan secara automatik ke portal Backoffice cloud, dan juga disimpan pada peranti semasa offline." },
     ],
+  },
+  blogPage: {
+    eyebrow: "Blog",
+    headingPart1: "Panduan untuk",
+    headingAccent: "PKS Malaysia",
+    headingPart2: ".",
+    body: "Tips, panduan dan kemaskini untuk membantu anda menjalankan perniagaan yang lebih bijak.",
   },
   featuresPage: {
     eyebrow: "Ciri-ciri",
