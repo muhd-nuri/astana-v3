@@ -77,24 +77,10 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           className="relative col-span-12 order-1 lg:order-2 lg:col-span-6"
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -inset-10 -z-10 rounded-[40%]"
-            style={{
-              background:
-                "radial-gradient(60% 50% at 50% 45%, color-mix(in oklab, var(--color-brand-mid) 35%, transparent) 0%, transparent 70%)",
-              filter: "blur(48px)",
-            }}
-          />
-          <video
-            src="/Hero-Video.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full rounded-2xl shadow-xl"
-            aria-label={t.a11y.decorativeDashboard}
+          <img
+            src="/Hero-Video.gif"
+            className="w-full"
+            alt={t.a11y.decorativeDashboard}
           />
         </motion.div>
       </div>

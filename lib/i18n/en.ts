@@ -3,9 +3,10 @@ import type { Dictionary } from "./ms";
 export const en: Dictionary = {
   nav: {
     features: "Features",
-    industries: "Industries",
+    industries: "Business",
     pricing: "Pricing",
-    about: "About",
+    about: "Hardware",
+    partner: "Partner",
     blog: "Blog",
     contact: "Contact",
     cta: "Login",
@@ -203,7 +204,7 @@ export const en: Dictionary = {
     headingPart2: "Anywhere, anytime.",
     body: "Manage and monitor sales, inventory, and employees from one cloud POS. Download and register now to get free unlimited access to all reports and features.",
     checks: [
-      "Unlimited reports & features",
+      "Unlimited Sales History, Employee & Inventory Management",
       "Cloud + offline sync",
       "1-month free trial — no card",
     ],
@@ -213,7 +214,7 @@ export const en: Dictionary = {
   trustBand: {
     subtitle: "Trusted by SMEs across 14 Malaysian states & 177 countries",
     stats: [
-      { value: 10000, suffix: "+", label: "Installations" },
+      { value: 100, suffix: "k+", label: "Downloads" },
       { value: 177, suffix: "", label: "Countries on Play Store" },
       { value: 144, suffix: "", label: "Features built-in" },
       { value: 300, suffix: "%", label: "Performance lift" },
@@ -375,8 +376,8 @@ export const en: Dictionary = {
     subscribeBody: "Subscribe via WhatsApp — monthly or annual. Flexible pricing, cancel anytime.",
     subscribeCta: "Subscribe via WhatsApp",
     plansEyebrow: "Subscription Pricing",
-    plansHeading: "Choose the modules you need.",
-    plansBody: "Each module is subscribed independently — pay only for what you use. Start with a 30-day free trial.",
+    plansHeading: "All 3 modules. One price.",
+    plansBody: "Unlimited Sales History, Employee & Inventory Management come bundled together — not billed separately.",
     billingMonthly: "Monthly",
     billingAnnual: "Annual",
     annualSavings: "Save 2 months",

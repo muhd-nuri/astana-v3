@@ -13,6 +13,7 @@ export type Dictionary = {
     industries: string;
     pricing: string;
     about: string;
+    partner: string;
     blog: string;
     contact: string;
     cta: string;
@@ -189,9 +190,10 @@ export type Dictionary = {
 export const ms: Dictionary = {
   nav: {
     features: "Ciri-ciri",
-    industries: "Industri",
+    industries: "Perniagaan",
     pricing: "Harga",
-    about: "Tentang",
+    about: "Hardware",
+    partner: "Partner",
     blog: "Blog",
     contact: "Hubungi",
     cta: "Log Masuk",
@@ -389,7 +391,7 @@ export const ms: Dictionary = {
     headingPart2: "Di mana-mana, bila-bila masa.",
     body: "Urus dan pantau jualan, inventori, dan pekerja dari satu POS cloud. Muat turun dan daftar sekarang untuk akses percuma tanpa had kepada semua laporan dan ciri.",
     checks: [
-      "Laporan & ciri tanpa had",
+      "Sejarah Jualan, Pekerja & Pengurusan Inventori Tanpa Had",
       "Sync cloud + offline",
       "1 bulan percubaan percuma — tanpa kad",
     ],
@@ -399,7 +401,7 @@ export const ms: Dictionary = {
   trustBand: {
     subtitle: "Dipercayai oleh PKS di seluruh 14 negeri Malaysia & 177 buah negara",
     stats: [
-      { value: 10000, suffix: "+", label: "Pemasangan" },
+      { value: 100, suffix: "k+", label: "Muat Turun" },
       { value: 177, suffix: "", label: "Negara di Play Store" },
       { value: 144, suffix: "", label: "Ciri terbina dalam" },
       { value: 300, suffix: "%", label: "Peningkatan prestasi" },
@@ -561,8 +563,8 @@ export const ms: Dictionary = {
     subscribeBody: "Langgan melalui WhatsApp — pilih bulanan atau tahunan. Harga fleksibel, tamatkan bila-bila masa.",
     subscribeCta: "Langgan via WhatsApp",
     plansEyebrow: "Harga Langganan",
-    plansHeading: "Pilih modul yang anda perlukan.",
-    plansBody: "Setiap modul dilanggani berasingan — bayar hanya untuk apa yang anda gunakan. Mulakan dengan percubaan 30 hari percuma.",
+    plansHeading: "3 modul. Satu harga.",
+    plansBody: "Sejarah Jualan, Pengurusan Pekerja & Inventori Tanpa Had — semuanya dibundel bersama, bukan dikenakan caj berasingan.",
     billingMonthly: "Bulanan",
     billingAnnual: "Tahunan",
     annualSavings: "Jimat 2 bulan",

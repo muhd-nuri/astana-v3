@@ -45,94 +45,105 @@ export function PricingPlans() {
           </p>
         </div>
 
-        {/* Billing cycle toggle */}
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex gap-1 rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-surface-tint)] p-1">
-            <button
-              type="button"
-              onClick={() => setCycle("monthly")}
-              className={cn(
-                "rounded-full px-6 py-2 text-[0.875rem] font-medium transition-all duration-200",
-                cycle === "monthly"
-                  ? "bg-white text-[var(--color-ink)] shadow-sm"
-                  : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]",
-              )}
-            >
-              {p.billingMonthly}
-            </button>
-            <button
-              type="button"
-              onClick={() => setCycle("annual")}
-              className={cn(
-                "inline-flex items-center gap-2 rounded-full px-6 py-2 text-[0.875rem] font-medium transition-all duration-200",
-                cycle === "annual"
-                  ? "bg-white text-[var(--color-ink)] shadow-sm"
-                  : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]",
-              )}
-            >
-              {p.billingAnnual}
-              <span className="chip-mint text-[0.62rem] font-bold uppercase tracking-[0.1em]">
-                {p.annualSavings}
+        {/* All-in-one card */}
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 overflow-hidden rounded-2xl border border-[var(--color-border-hairline)] bg-white shadow-sm"
+        >
+          {/* Card header: price left, toggle right */}
+          <div className="flex flex-col gap-5 border-b border-[var(--color-border-hairline)] px-7 py-6 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <div className="flex items-end gap-2">
+                <span className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
+                  RM {cycle === "monthly" ? "79" : "790"}
+                </span>
+                <div className="mb-0.5 flex flex-col leading-snug">
+                  <span className="text-[0.82rem] text-[var(--color-ink-soft)]">
+                    / {cycle === "monthly" ? p.billingMonthly.toLowerCase() : p.billingAnnual.toLowerCase()}
+                  </span>
+                  <span className="text-[0.82rem] text-[var(--color-ink-soft)]">{p.perStore}</span>
+                </div>
+              </div>
+              <span className="chip-mint mt-3 inline-block text-[0.68rem] font-semibold uppercase tracking-[0.1em]">
+                {p.trialNote}
               </span>
-            </button>
-          </div>
-        </div>
+            </div>
 
-        {/* Add-on cards */}
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {/* Billing toggle */}
+            <div className="inline-flex gap-1 self-start rounded-full border border-[var(--color-border-hairline)] bg-[var(--color-surface-tint)] p-1">
+              <button
+                type="button"
+                onClick={() => setCycle("monthly")}
+                className={cn(
+                  "rounded-full px-5 py-2 text-[0.85rem] font-medium transition-all duration-200",
+                  cycle === "monthly"
+                    ? "bg-white text-[var(--color-ink)] shadow-sm"
+                    : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]",
+                )}
+              >
+                {p.billingMonthly}
+              </button>
+              <button
+                type="button"
+                onClick={() => setCycle("annual")}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full px-5 py-2 text-[0.85rem] font-medium transition-all duration-200",
+                  cycle === "annual"
+                    ? "bg-white text-[var(--color-ink)] shadow-sm"
+                    : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]",
+                )}
+              >
+                {p.billingAnnual}
+                <span className="chip-mint text-[0.62rem] font-bold uppercase tracking-[0.1em]">
+                  {p.annualSavings}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Feature rows */}
           {p.addons.map((addon, i) => {
             const Icon = addonIcons[i];
             return (
-              <motion.div
+              <div
                 key={addon.name}
-                initial={reduced ? false : { opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-                className="card-mcbiz flex flex-col p-8"
+                className={cn(
+                  "flex items-start gap-5 px-7 py-5",
+                  i < p.addons.length - 1 && "border-b border-[var(--color-border-hairline)]",
+                )}
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)]">
-                  <Icon className="h-6 w-6" strokeWidth={2} />
+                <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-brand-pale)] text-[var(--color-brand-forest)]">
+                  <Icon className="h-5 w-5" strokeWidth={2} />
                 </span>
-
-                <h3 className="mt-5 font-display text-[1.1rem] font-bold tracking-tight text-[var(--color-ink)]">
-                  {addon.name}
-                </h3>
-                <p className="mt-2 flex-1 text-[0.92rem] leading-relaxed text-[var(--color-ink-soft)]">
-                  {addon.description}
-                </p>
-
-                {/* Price display */}
-                <div className="mt-6 flex items-end gap-2">
-                  <span className="font-display text-[2.75rem] font-bold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
-                    RM {cycle === "monthly" ? "79" : "790"}
-                  </span>
-                  <div className="mb-1 flex flex-col leading-snug">
-                    <span className="text-[0.8rem] text-[var(--color-ink-soft)]">
-                      / {cycle === "monthly" ? p.billingMonthly.toLowerCase() : p.billingAnnual.toLowerCase()}
-                    </span>
-                    <span className="text-[0.8rem] text-[var(--color-ink-soft)]">{p.perStore}</span>
-                  </div>
+                <div>
+                  <p className="font-display text-[0.95rem] font-bold tracking-tight text-[var(--color-ink)]">
+                    {addon.name}
+                  </p>
+                  <p className="mt-1 text-[0.88rem] leading-relaxed text-[var(--color-ink-soft)]">
+                    {addon.description}
+                  </p>
                 </div>
-
-                <span className="chip-mint mt-3 w-fit text-[0.68rem] font-semibold uppercase tracking-[0.1em]">
-                  {p.trialNote}
-                </span>
-
-                <CTAButton
-                  href={links.whatsapp()}
-                  external
-                  variant="primary"
-                  size="lg"
-                  className="mt-6 w-full justify-center"
-                  icon={<WhatsAppIcon className="h-4 w-4" />}
-                >
-                  {p.subscribeCta}
-                </CTAButton>
-              </motion.div>
+              </div>
             );
           })}
-        </div>
+
+          {/* CTA */}
+          <div className="border-t border-[var(--color-border-hairline)] px-7 py-5">
+            <CTAButton
+              href={links.whatsapp()}
+              external
+              variant="primary"
+              size="lg"
+              className="w-full justify-center"
+              icon={<WhatsAppIcon className="h-4 w-4" />}
+            >
+              {p.subscribeCta}
+            </CTAButton>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
