@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import {
   Cloud,
   Wifi,
@@ -43,7 +44,23 @@ export function ApproachGrid() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="mt-10"
+        >
+          <Image
+            src="/astana-approach.jpg"
+            alt="Astana POS powerful modules — dashboard, accounting, marketing, operations, HRM, and administration"
+            width={1280}
+            height={1280}
+            className="mx-auto w-full max-w-[720px] h-auto rounded-2xl"
+          />
+        </motion.div>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {section.items.map((item, i) => {
             const Icon = icons[i];
             return (

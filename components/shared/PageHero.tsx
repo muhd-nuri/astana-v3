@@ -9,6 +9,7 @@ type PageHeroProps = {
   headingAccent?: string;
   headingPart2?: string;
   body?: string;
+  afterBody?: ReactNode;
   children?: ReactNode;
 };
 
@@ -18,6 +19,7 @@ export function PageHero({
   headingAccent,
   headingPart2,
   body,
+  afterBody,
   children,
 }: PageHeroProps) {
   const reduced = useReducedMotion();
@@ -31,57 +33,69 @@ export function PageHero({
             "radial-gradient(60% 40% at 50% 0%, color-mix(in oklab, var(--color-brand-mid) 12%, transparent), transparent 65%)",
         }}
       />
-      <div className="mx-auto w-full max-w-[820px] px-6 text-center md:px-10">
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-deep)]"
-        >
-          {eyebrow}
-        </motion.p>
-        <motion.h1
-          initial={reduced ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="mt-4 font-display font-bold tracking-[-0.025em] text-[var(--color-ink)]"
-          style={{
-            fontSize: "var(--text-display-xl)",
-            lineHeight: "var(--text-display-xl--line-height)",
-          }}
-        >
-          {headingPart1}
-          {headingAccent && (
-            <>
-              {" "}
-              <span className="text-gradient-brand">{headingAccent}</span>
-            </>
-          )}
-          {headingPart2 && (
-            <>
-              {" "}
-              {headingPart2}
-            </>
-          )}
-        </motion.h1>
-        {body && (
+      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
+        <div className="mx-auto max-w-[820px] text-center">
           <motion.p
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
-            className="mt-5 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-ink-soft)]"
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-deep)]"
           >
-            {body}
+            {eyebrow}
           </motion.p>
-        )}
-        {children && (
-          <motion.div
-            initial={reduced ? false : { opacity: 0, y: 10 }}
+          <motion.h1
+            initial={reduced ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.34 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            className="mt-4 font-display font-bold tracking-[-0.025em] text-[var(--color-ink)]"
+            style={{
+              fontSize: "var(--text-display-xl)",
+              lineHeight: "var(--text-display-xl--line-height)",
+            }}
           >
-            {children}
+            {headingPart1}
+            {headingAccent && (
+              <>
+                {" "}
+                <span className="text-gradient-brand">{headingAccent}</span>
+              </>
+            )}
+            {headingPart2 && (
+              <>
+                {" "}
+                {headingPart2}
+              </>
+            )}
+          </motion.h1>
+          {body && (
+            <motion.p
+              initial={reduced ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
+              className="mt-5 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-ink-soft)]"
+            >
+              {body}
+            </motion.p>
+          )}
+          {children && (
+            <motion.div
+              initial={reduced ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.34 }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-3"
+            >
+              {children}
+            </motion.div>
+          )}
+        </div>
+        {afterBody && (
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.36 }}
+            className="mt-10"
+          >
+            {afterBody}
           </motion.div>
         )}
       </div>
