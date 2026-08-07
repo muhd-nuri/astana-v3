@@ -85,23 +85,20 @@ export default function TermsPage() {
 
           <Section title="4. Subscriptions and Pricing">
             <p>
-              Subscriptions are available on a per-module, per-store basis:
+              <strong>Subscription Plans:</strong> Subscriptions for the Astana POS software are available on a per-terminal basis.
             </p>
             <ul>
-              <li><strong>Monthly plan</strong>: RM 79 per module per store per month</li>
-              <li><strong>Annual plan</strong>: RM 790 per module per store per year</li>
+              <li><strong>Monthly Plan</strong>: RM 79 per terminal, per month.</li>
+              <li><strong>Annual Plan</strong>: RM 790 per terminal, per year.</li>
             </ul>
             <p>
-              Available subscription modules: Unlimited Sales History, Unlimited Employee Management, Unlimited Inventory Management. Pricing is subject to change with 30 days&apos; written notice.
+              <strong>Available Modules:</strong> Features include Unlimited Sales History, Unlimited Employee Management, and Unlimited Inventory Management. Pricing is subject to change with 30 days&apos; written notice.
             </p>
             <p>
-              Subscriptions are processed via WhatsApp with our authorised team. We currently do not offer automated online payment; all subscription arrangements are confirmed in writing by our team.
+              <strong>Renewals:</strong> Subscriptions do not auto-renew, except for subscriptions made using a debit/credit card in the back office, which are subject to auto-debit. For manual renewals, our team will contact you prior to the expiry date. Non-renewal will result in the affected modules reverting to read-only access.
             </p>
             <p>
-              <strong>Renewals:</strong> Subscriptions do not auto-renew. Our team will contact you prior to expiry. Non-renewal results in the affected module reverting to read-only access.
-            </p>
-            <p>
-              <strong>Refunds:</strong> All payments are non-refundable except where required by Malaysian consumer protection law, or where a service failure of significant duration is attributable solely to us.
+              <strong>Refund Policy:</strong> We offer a 7-day money-back guarantee for the Astana POS software. To request a refund, you must submit a written notice within 7 days of your initial purchase. If a written notice is not provided within this 7-day period, the refund request will be considered invalid. Beyond this 7-day period, all payments are non-refundable except where required by Malaysian consumer protection law, or in the event of a significant service failure attributable solely to us.
             </p>
           </Section>
 
