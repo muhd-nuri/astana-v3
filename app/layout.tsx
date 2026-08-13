@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : undefined,
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Astana POS",
+    title: "Astana POS — Sistem Juruwang Cloud untuk PKS Malaysia",
+    description:
+      "Sistem POS cloud yang tidak menghadkan pertumbuhan anda. Jualan tanpa had, stok tanpa had, laporan tanpa had — dipercayai oleh 7,000+ kedai di Malaysia.",
+    locale: "ms_MY",
+  },
 };
 
 export default function RootLayout({
