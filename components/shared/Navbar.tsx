@@ -129,6 +129,14 @@ export function Navbar() {
           >
             {t.nav.about}
           </a>
+          <a
+            href="https://town.astanabiz.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            {t.nav.town}
+          </a>
 
           {/* Partner dropdown */}
           <div ref={partnerRef} className="relative">
@@ -255,6 +263,15 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                 >
                   <NavCard title={t.nav.about} desc={t.nav.descAbout} />
+                </a>
+
+                <a
+                  href="https://town.astanabiz.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                >
+                  <NavCard title={t.nav.town} desc={t.nav.descTown} />
                 </a>
 
                 {/* Partner accordion card */}

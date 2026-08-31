@@ -13,6 +13,7 @@ export type Dictionary = {
     industries: string;
     pricing: string;
     about: string;
+    town: string;
     partner: string;
     blog: string;
     contact: string;
@@ -24,6 +25,7 @@ export type Dictionary = {
     descIndustries: string;
     descPricing: string;
     descAbout: string;
+    descTown: string;
     descPartner: string;
     descBlog: string;
     descContact: string;
@@ -208,6 +210,7 @@ export const ms: Dictionary = {
     industries: "Perniagaan",
     pricing: "Harga",
     about: "Hardware",
+    town: "Astana Town",
     partner: "Partner",
     blog: "Blog",
     contact: "Hubungi",
@@ -219,6 +222,7 @@ export const ms: Dictionary = {
     descIndustries: "Pilih industri yang sesuai untuk anda",
     descPricing: "Harga mudah, tiada kos tersembunyi",
     descAbout: "Terminal POS, pencetak dan periferal",
+    descTown: "Komuniti dan akademi untuk pengguna Astana",
     descPartner: "Jadi reseller, distributor atau affiliate",
     descBlog: "Tips dan kemaskini untuk PKS",
     descContact: "Hubungi pasukan kami — kami balas segera",
