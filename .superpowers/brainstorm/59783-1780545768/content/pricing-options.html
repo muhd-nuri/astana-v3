@@ -1,0 +1,211 @@
+<h2>Pricing Section — 3 Alternatives</h2>
+<p class="subtitle">Each shows how the RM79 bundle could be presented. Click to select your favourite.</p>
+
+<style>
+  .cards { display: flex; flex-direction: column; gap: 32px; margin-top: 24px; }
+  .card { background: #fff; border: 2px solid #e2e8f0; border-radius: 16px; overflow: hidden; padding: 0; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+  .card.selected { border-color: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,0.15); }
+  .card-label { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 10px 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; display: flex; justify-content: space-between; align-items: center; }
+  .card-label .badge { background: #22c55e; color: white; border-radius: 99px; padding: 2px 10px; font-size: 10px; }
+  .card-body { padding: 28px 28px; }
+
+  /* Shared elements */
+  .toggle-pill { display: inline-flex; background: #f1f5f9; border-radius: 99px; padding: 3px; gap: 2px; font-size: 13px; }
+  .toggle-pill .active { background: white; border-radius: 99px; padding: 5px 18px; font-weight: 600; color: #0f172a; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .toggle-pill .inactive { padding: 5px 18px; color: #64748b; display: flex; align-items: center; gap: 6px; }
+  .save-chip { background: #dcfce7; color: #15803d; border-radius: 99px; padding: 2px 8px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .price-big { font-size: 42px; font-weight: 800; color: #0f172a; line-height: 1; letter-spacing: -0.03em; }
+  .price-meta { font-size: 13px; color: #94a3b8; margin-top: 2px; }
+  .trial-chip { display: inline-block; background: #dcfce7; color: #15803d; border-radius: 99px; padding: 3px 10px; font-size: 11px; font-weight: 600; }
+  .cta-btn { background: #22c55e; color: white; border: none; border-radius: 10px; padding: 13px 22px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .cta-btn-full { width: 100%; justify-content: center; }
+  .cta-btn svg { width: 16px; height: 16px; fill: white; }
+  .feature-row { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid #f1f5f9; }
+  .feature-row:last-child { border-bottom: none; }
+  .feat-icon { width: 38px; height: 38px; background: #f0fdf4; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #16a34a; }
+  .feat-icon svg { width: 18px; height: 18px; }
+  .feat-title { font-size: 14px; font-weight: 700; color: #0f172a; }
+  .feat-desc { font-size: 13px; color: #64748b; margin-top: 2px; line-height: 1.5; }
+  .check { width: 20px; height: 20px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #16a34a; margin-top: 2px; }
+
+  /* Option A: Centered Price Hero */
+  .hero-center { text-align: center; }
+  .hero-toggle-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+  .price-hero-block { margin: 20px 0 28px; }
+  .price-hero-block .price-big { font-size: 56px; }
+  .features-pill-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 28px; }
+  .feat-pill { display: inline-flex; align-items: center; gap: 6px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: #15803d; }
+  .feat-pill svg { width: 14px; height: 14px; }
+
+  /* Option B: All-In-One Card */
+  .b-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid #f1f5f9; margin-bottom: 4px; }
+  .b-price-inline { display: flex; align-items: baseline; gap: 4px; }
+  .b-price-inline .price-big { font-size: 32px; }
+  .b-price-inline .price-slash { font-size: 14px; color: #94a3b8; margin-left: 2px; }
+  .b-footer { padding-top: 20px; border-top: 1px solid #f1f5f9; margin-top: 4px; }
+
+  /* Option C: Split */
+  .split-layout { display: grid; grid-template-columns: 220px 1fr; min-height: 320px; }
+  .split-left { background: linear-gradient(160deg, #16a34a 0%, #15803d 100%); padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; color: white; }
+  .split-left .price-big { color: white; font-size: 40px; }
+  .split-left .price-meta { color: rgba(255,255,255,0.7); }
+  .split-left .trial-chip { background: rgba(255,255,255,0.2); color: white; }
+  .split-left .toggle-pill { background: rgba(255,255,255,0.15); }
+  .split-left .toggle-pill .active { background: rgba(255,255,255,0.9); color: #15803d; }
+  .split-left .toggle-pill .inactive { color: rgba(255,255,255,0.7); }
+  .split-left .cta-btn { background: white; color: #15803d; margin-top: auto; width: 100%; justify-content: center; }
+  .split-right { padding: 20px 24px; }
+  .split-right .feat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 12px; }
+
+  .wa-icon { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+</style>
+
+<div class="cards">
+
+  <!-- Option A: Centered Price Hero -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-label">
+      Option A — Centered Price Hero
+      <span class="badge">Recommended</span>
+    </div>
+    <div class="card-body hero-center">
+      <div class="hero-toggle-wrap">
+        <div class="toggle-pill">
+          <span class="active">Monthly</span>
+          <span class="inactive">Annual <span class="save-chip">Save 2 months</span></span>
+        </div>
+      </div>
+      <div class="price-hero-block">
+        <div class="price-big">RM 79</div>
+        <div class="price-meta">per month · per store</div>
+      </div>
+      <div class="features-pill-row">
+        <span class="feat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Unlimited Sales History
+        </span>
+        <span class="feat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Employee Management
+        </span>
+        <span class="feat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Inventory Management
+        </span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="cta-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2.003C6.477 2.003 2 6.479 2 12c0 1.868.487 3.6 1.337 5.098L2 22l5.047-1.32A9.944 9.944 0 0011.998 22c5.522 0 9.999-4.476 9.999-9.999 0-5.52-4.477-9.998-9.999-9.998z"/></svg>
+          Subscribe via WhatsApp
+        </button>
+        <span class="trial-chip">30-day free trial</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: All-In-One Card -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-label">Option B — All-In-One Card</div>
+    <div class="card-body">
+      <div class="b-header">
+        <div>
+          <div class="b-price-inline">
+            <div class="price-big">RM 79</div>
+            <span class="price-slash">/month · per store</span>
+          </div>
+          <div style="margin-top:6px;display:flex;align-items:center;gap:8px;">
+            <span class="trial-chip">30-day free trial</span>
+          </div>
+        </div>
+        <div class="toggle-pill">
+          <span class="active">Monthly</span>
+          <span class="inactive">Annual <span class="save-chip">Save 2 months</span></span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Unlimited Sales History</div>
+          <div class="feat-desc">Full access to sales reports with no time limit. Track trends and store performance.</div>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Unlimited Employee Management</div>
+          <div class="feat-desc">Unlimited staff accounts, commissions, access rights, and performance tracking.</div>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Unlimited Inventory Management</div>
+          <div class="feat-desc">Real-time stock tracking, purchase orders, goods receiving — all unlimited.</div>
+        </div>
+      </div>
+
+      <div class="b-footer">
+        <button class="cta-btn cta-btn-full">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2.003C6.477 2.003 2 6.479 2 12c0 1.868.487 3.6 1.337 5.098L2 22l5.047-1.32A9.944 9.944 0 0011.998 22c5.522 0 9.999-4.476 9.999-9.999 0-5.52-4.477-9.998-9.998-9.998z"/></svg>
+          Subscribe via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C: Split Panel -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-label">Option C — Split Panel (Price left · Features right)</div>
+    <div class="card-body" style="padding:0;">
+      <div class="split-layout">
+        <div class="split-left">
+          <div class="toggle-pill" style="width:fit-content;">
+            <span class="active">Monthly</span>
+            <span class="inactive">Annual</span>
+          </div>
+          <div>
+            <div class="price-big">RM 79</div>
+            <div class="price-meta">per month · per store</div>
+          </div>
+          <span class="trial-chip" style="width:fit-content;">30-day free trial</span>
+          <button class="cta-btn" style="background:white;color:#15803d;margin-top:auto;width:100%;justify-content:center;">
+            <svg viewBox="0 0 24 24" style="fill:#15803d;width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2.003C6.477 2.003 2 6.479 2 12c0 1.868.487 3.6 1.337 5.098L2 22l5.047-1.32A9.944 9.944 0 0011.998 22c5.522 0 9.999-4.476 9.999-9.999 0-5.52-4.477-9.998-9.998-9.998z"/></svg>
+            Subscribe
+          </button>
+        </div>
+        <div class="split-right">
+          <div class="split-right feat-label">What's included</div>
+          <div class="feature-row" style="padding:12px 0;">
+            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+            <div>
+              <div class="feat-title">Unlimited Sales History</div>
+              <div class="feat-desc">Full access to reports with no time limit.</div>
+            </div>
+          </div>
+          <div class="feature-row" style="padding:12px 0;">
+            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <div class="feat-title">Employee Management</div>
+              <div class="feat-desc">Unlimited staff, commissions & access rights.</div>
+            </div>
+          </div>
+          <div class="feature-row" style="padding:12px 0;">
+            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <div>
+              <div class="feat-title">Inventory Management</div>
+              <div class="feat-desc">Real-time stock, purchase orders, all unlimited.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
